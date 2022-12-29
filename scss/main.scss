@@ -7,6 +7,8 @@ $secondary_color: #89C4E1;
 $tertiary_color: #58287F;
 $quaternary_color: #1A0000;
 
+$opposite_color: desaturate(adjust-hue($tertiary_color, 180deg), 10%);
+
 //Spacing
 $section_spacing: 80px;
 
@@ -16,13 +18,20 @@ body{
 }
 
 nav{
-    background-color: $primary_color;    
+    background-color: $primary_color;
+    background-color: $opposite_color;    
     ul{
         list-style: none;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+
         li{
             padding: 8px 16px;
+        }
+
+        @media screen and (min-width:642px){
+            flex-direction: row;
+            justify-content: center;
         }
     }
 }
@@ -31,14 +40,24 @@ nav{
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 64px;
     box-sizing: border-box;
     padding: $section_spacing 0;
 
     .box{
         background-color: $tertiary_color;
-        width: 25%;
+        width: 80%;
         height: 300px;
+    }
+
+    @media screen and (min-width:642px){
+        flex-direction: row;
+
+        .box{            
+            width: 25%;            
+        }
     }
 }
