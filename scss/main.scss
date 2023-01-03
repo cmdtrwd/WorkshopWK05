@@ -102,17 +102,17 @@ nav{
     }
 }
 
-@mixin flex-full-width{
+@mixin flex-full-width($f-gap:16px){
     display: flex;
     justify-content: center;
     width: 100%;
     padding: $section_spacing;
     box-sizing: border-box;
-    gap: 32px;
+    gap: $f-gap;
 }
 
 #text-container{
-    @include flex-full-width();
+    @include flex-full-width(64px);
     background-color: $secondary_color;
     .text-box{
         background-color: white;
@@ -122,6 +122,6 @@ nav{
 }
 
 #testimonial{
-    @include flex-full-width();
+    @include flex-full-width(32px);
     background-color: $quaternary_color;
 }
