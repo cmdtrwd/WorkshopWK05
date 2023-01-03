@@ -149,6 +149,11 @@ nav ul li {
   gap: 32px;
   background-color: #1A0000;
 }
+@media screen and (min-width: 642px) {
+  #testimonial {
+    flex-direction: row;
+  }
+}
 
 .default-box, .active-box {
   width: 80%;

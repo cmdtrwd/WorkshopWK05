@@ -142,6 +142,10 @@ nav{
 #testimonial{
     @include flex-full-width(32px);
     background-color: $quaternary_color;
+
+    @media screen and (min-width: 642px) {
+        flex-direction: row;
+    }
 }
 
 %box{
