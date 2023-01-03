@@ -116,6 +116,8 @@ nav ul li {
 #text-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 80px;
   box-sizing: border-box;
@@ -124,16 +126,48 @@ nav ul li {
 }
 #text-container .text-box {
   background-color: white;
-  width: 40%;
+  width: 80%;
   height: 300px;
+}
+@media screen and (min-width: 642px) {
+  #text-container {
+    flex-direction: row;
+  }
+  #text-container .text-box {
+    width: 40%;
+  }
 }
 
 #testimonial {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 80px;
   box-sizing: border-box;
   gap: 32px;
   background-color: #1A0000;
+}
+
+.default-box, .active-box {
+  width: 80%;
+  max-width: 500px;
+  height: 400px;
+  background-color: #F5EDCE;
+  border: 1px solid #58287F;
+  color: #1A0000;
+  font-size: 60px;
+  padding: 32px;
+}
+.default-box:hover, .active-box:hover {
+  background-color: #89C4E1;
+}
+
+.active-box {
+  background-color: #58287F;
+  color: #F5EDCE;
+}
+.active-box:hover {
+  background-color: #507730;
 }/*# sourceMappingURL=main.css.map */

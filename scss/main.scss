@@ -14,6 +14,14 @@ $opposite_color: desaturate(adjust-hue($tertiary_color, 180deg), 10%);
 //Spacing
 $section_spacing: 80px;
 
+//Function to divide the value by 2
+@function get-half-value($input-value){
+    $result: $input-value/2;
+    //  @error "returned value: #{$result}";
+    
+    @return $result;    
+}
+
 
 body{
     font-family: 'Poppins';
@@ -105,6 +113,8 @@ nav{
 @mixin flex-full-width($f-gap:16px){
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     padding: $section_spacing;
     box-sizing: border-box;
@@ -116,8 +126,16 @@ nav{
     background-color: $secondary_color;
     .text-box{
         background-color: white;
-        width: 40%;
+        width: 80%;
         height: 300px;
+    }
+
+    @media screen and (min-width: 642px){
+        flex-direction: row;
+
+        .text-box{
+            width: 40%;
+        }
     }
 }
 
@@ -125,3 +143,34 @@ nav{
     @include flex-full-width(32px);
     background-color: $quaternary_color;
 }
+
+%box{
+    width: 80%;
+    max-width: 500px;
+    height: 400px;
+    background-color: $primary_color;
+    border: 1px solid $tertiary_color;
+    color: $quaternary_color;
+
+    font-size: get-half-value(120px);
+    padding: get-half-value(64px);
+
+    &:hover{
+        background-color: $secondary_color;
+    }
+}
+
+.default-box{
+    @extend %box;
+}
+.active-box{
+    @extend .default-box;
+    background-color: $tertiary_color;
+    color: $primary_color;
+
+    &:hover{
+        background-color: $opposite_color;
+    }
+}
+
+
